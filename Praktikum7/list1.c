@@ -252,27 +252,117 @@ void UpdateX(List1 *L, infotype X, infotype Y) {
 { I.S. L terdefinisi }
 { F.S. urutan posisi elemen terbalik, misal {'i','t','u'} menjadi {'u','t','i'} }*/
 void Invers(List1 *L) {
-	
+	 // Kamus Lokal
+	 address P;
+	 address temp;
+	 int N;
+	 int i;
+
+	 // Algoritma
+	 N = NbElm(*L);
+	 for (int i = 1; i <= N; i++) {
+		P = First(*L);
+		if (next(P) != NIL) {	
+			First(*L) = next(P);
+		}
+		if (i == 1) {
+			temp = P;
+			next(P) = NIL;
+		}else {
+			printf("%c",info(temp));
+			next(P) = temp;
+			temp = P;
+		}
+	}
 }
 
 /*********** SOAL TAMBAHAN, DIKERJAKAN BILA LUANG *****************/
-/*function CountVocal(L:List1, X:infotype) -> integer */
+/*function CountVocal(L:List1) -> integer */
 /*{ mengembalikan banyaknya kemunculan huruf vokal dalam list L}*/
-int CountVocal(List1 L, infotype X);
+int CountVocal(List1 L) {
+	// Kamus Lokal
+	address P;
+	int count = 0;
+	
+	// Algoritma
+	P = First(L);
+	while (P != NIL)
+	{
+		if (info(P) == 'a' || info(P) == 'A' || info(P) == 'i' || info(P) == 'I' ||
+		info(P) == 'u' || info(P) == 'U' || info(P) == 'e' || info(P) == 'E' ||
+		info(P) == 'o' || info(P) == 'O') {
+			count += 1;
+		}
+		P = next(P);
+	}
+	return count;
+}
 
 /*function CountX(L:List1, X:infotype) -> integer */
 /*{ mengembalikan banyaknya kemunculan X dalam list L}*/
-int CountX(List1 L, infotype X);
+int CountX(List1 L, infotype X) {
+	// Kamus Lokal
+	address P;
+	int count = 0;
+	
+	// Algoritma
+	P = First(L);
+	while (P != NIL)
+	{
+		if (info(P) == X) {
+			count += 1;
+		}
+		P = next(P);
+	}
+	return count;
+}
 
 /*function FrekuensiX(L:List1, X:infotype) -> real */
 /*{ mengembalikan rasio kemunculan X dibandingkan ukuran list L }*/
-float FrekuensiX(List1 L, infotype X);
+float FrekuensiX(List1 L, infotype X) {
+	// Kamus Lokal
+	address P;
+	int count = 0;
+	float rasio = 0;
+	
+	// Algoritma
+	P = First(L);
+	while (P != NIL)
+	{
+		if (info(P) == X) {
+			count += 1;
+		}
+		P = next(P);
+	}
+	if (NbElm(L) != 0 ) {
+		rasio = (float)count /NbElm(L);
+	}
+	return rasio;
+}
 
 /*Procedure SearchAllX(input L:List1, input X:infotype)
 { I.S. L, X terdefinisi }
 { F.S. -
 Proses: menampilkan posisi-posisi (1,2,3,...nbElm(L)) kemunculan elemen X dalam list L }*/
-void SearchAllX(List1 L, infotype X);
+void SearchAllX(List1 L, infotype X) {
+	// Kamus Lokal
+	address P;
+	int N,i;
+
+	// Algoritma
+	 N = NbElm(L);
+
+	 for (int i = 1; i <= N; i++) {
+		if (i == 1) {
+			P = First(L);
+		}
+		if (info(P) == X) {
+			printf(" %d,", i);
+		}
+		P = next(P);
+	 }
+
+}
 
 /*Procedure UpdateAllX(input/output L:List1, input X:infotype, input Y:infotype)
 { I.S. L, X, Y terdefinisi }
@@ -299,15 +389,56 @@ void UpdateAllX(List1 *L, infotype X, infotype Y) {
 { I.S. List L mungkin kosong, V, S terdefinisi }
 { F.S. L tetap, atau bertambah 1 elemen (VA) pada posisi setelah elemen berinfo V}
 { Proses: Insert sebuah elemen beralamat P dengan Info(P)=VA sebagai elemen setelah elemen V list linier L yg mungkin kosong } */
-void InsertVAfter(List1 *L, infotype V, infotype VA );
+void InsertVAfter(List1 *L, infotype V, infotype VA ) {
+	// Kamus Lokal
+	address P;
+	address temp;
+	boolean found = false;
+
+	// Algoritma
+	P = First(*L);
+	while (P != NIL && !found) {
+		if (info(P) == V) {
+			found = true;
+		}else {
+			P = next(P);
+		}
+	}
+	temp = Alokasi(VA);
+	next(temp) = next(P);
+	next(P) = temp;
+}
 
 /*function Modus(L:List1) -> infotype */
 /*{ mengembalikan huruf yang paling banyak muncul dalam list L}*/
-infotype Modus(List1 L);
+infotype Modus(List1 L) {
+	// Kamus Lokal
+	address P;
+	infotype result;
+	int maks = 0;
+	int count;
+
+	// Algoritma
+	P = First(L);
+	while (P != NIL) {
+		count = CountX(L,info(P));
+		if (maks < count) {
+			maks = count;
+			result = info(P);
+		}
+		P = next(P);
+	}
+	return result;
+}
 
 /*function NbModus(L:List1) -> integer */
 /*{ mengembalikan banyaknya huruf yang paling banyak muncul di list L}*/
-int NbModus(List1 L);
+int NbModus(List1 L) {
+	// Kamus Lokal
+
+	// Algoritma
+	
+}
 
 /*OPERASI BANYAK LIST*/
 /*Procedure ConcatList(input L1:List1, input L2:List1, output L:List1)

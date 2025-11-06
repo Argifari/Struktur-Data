@@ -89,14 +89,56 @@ int main()
   printf("\nHitung elemen Senarai : %d\n", NbElm(Senarai));
 
   printf("\n\n=== Test UpdateAllX =====================================\n");
-  printf("Mengubah huruf a menjadi p : \n");
-  UpdateAllX(&Senarai, 'a', 'p');
+  printf("Mengubah huruf a menjadi i : \n");
+  UpdateAllX(&Senarai, 'a', 'i');
   printf("\nIsi Senarai :");
   PrintList(Senarai);
   printf("\nHitung elemen Senarai : %d\n", NbElm(Senarai));
 
+  printf("\n\n=== Test Invers ========================================\n");
+  Invers(&Senarai);
+  printf("\nIsi Senarai :");
+  PrintList(Senarai);
+  printf("\nHitung elemen Senarai : %d\n", NbElm(Senarai));
 
+  printf("\n\n=== Test CountVocal =====================================\n");
+  printf("\nIsi Senarai :");
+  PrintList(Senarai);
+  printf("\nHitung elemen Senarai : %d\n", NbElm(Senarai));
+  printf("Hitung elemen berhuruf vocal : %d\n", CountVocal(Senarai));
+
+  printf("\n\n=== Test CountX ==========================================\n");
+  printf("\nIsi Senarai :");
+  PrintList(Senarai);
+  printf("\nHitung elemen Senarai : %d\n", NbElm(Senarai));
+  printf("Hitung elemen berhuruf p : %d\n", CountX(Senarai, 'p'));
+
+  printf("\n\n=== Test FrekuensiX ======================================\n");
+  printf("\nIsi Senarai :");
+  PrintList(Senarai);
+  printf("\nHitung elemen Senarai : %d\n", NbElm(Senarai));
+  printf("Hitung frekuensi elemen berhuruf i : %f\n", FrekuensiX(Senarai, 'i'));
   
+  printf("\n\n=== Test SearchAllX ======================================\n");
+  printf("\nIsi Senarai :");
+  PrintList(Senarai);
+  printf("\nHitung elemen Senarai : %d\n", NbElm(Senarai));
+  printf("\nMelakukan pencarian huruf i :");
+  SearchAllX(Senarai, 'i');
+  
+  printf("\n\n=== Test InsertVAfter ====================================\n");
+  printf("\nMengisi elemen 'B' setelah elemen 'p:");
+  InsertVAfter(&Senarai, 'p', 'B');
+  printf("\nIsi Senarai :");
+  PrintList(Senarai);
+  printf("\nHitung elemen Senarai : %d\n", NbElm(Senarai));
+  
+  printf("\n\n=== Test Modus ===========================================\n");
+  InsertVAfter(&Senarai, 'p', 'B');
+  printf("\nIsi Senarai :");
+  PrintList(Senarai);
+  printf("\nHitung elemen Senarai : %d\n", NbElm(Senarai));
+  printf("Elemen yang paling banyak muncul : %c\n", Modus(Senarai));
 
   return 0;
 }

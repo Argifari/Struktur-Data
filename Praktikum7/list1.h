@@ -107,9 +107,9 @@ void UpdateX(List1 *L, infotype X, infotype Y);
 void Invers(List1 *L);
 
 /*********** SOAL TAMBAHAN, DIKERJAKAN BILA LUANG *****************/
-/*function CountVocal(L:List1, X:infotype) -> integer */
+/*function CountVocal(L:List1) -> integer */
 /*{ mengembalikan banyaknya kemunculan huruf vokal dalam list L}*/
-int CountVocal(List1 L, infotype X);
+int CountVocal(List1 L);
 
 /*function CountX(L:List1, X:infotype) -> integer */
 /*{ mengembalikan banyaknya kemunculan X dalam list L}*/
