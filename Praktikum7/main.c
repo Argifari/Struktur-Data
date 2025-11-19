@@ -12,35 +12,55 @@ int main()
   address P;
   infotype V;
   List1 Senarai;
+  List1 Senarai1;
+  List1 Senarai2;
+  List1 CopySenarai;
   //algoritma
   
   //aplikasi tipe address
   
-  // A = (address) malloc ( sizeof (Elm) ); // Alokasi('G')
-  // A->info = 'G';   A->next = NIL;
   
   printf("\n\n=== Testing Alokasi =====================================\n");
   A = Alokasi('G');
   printf("info(A)=%c\t", info(A) );
-  // B = (address) malloc ( sizeof (Elm) ); // Alokasi('N')
-  // B->info = 'N';   B->next = A;
   B = Alokasi('N');
   next(B) = A;
-  
   printf("info(B)=%c\n", B->info );
   
+  printf("\n\n=== Testing Dealokasi ===================================\n");
+  Dealokasi(B);
+  B = NIL;
+  Dealokasi(A);
+  if (B == NIL) {
+    printf("Dealokasi berhasil\n");
+  }else {
+    printf("Dealokasi tidak berhasil\n");
+    
+  }
+
   //aplikasi tipe List1
   printf("\n\n=== Testing CreateList ==================================\n");
   CreateList(&Senarai);
+  CreateList(&Senarai1);
+  CreateList(&Senarai2);
+  CreateList(&CopySenarai);
   printf("Isi Senarai :");
   PrintList(Senarai);
   printf("\nHitung elemen Senarai : %d", NbElm(Senarai));
+
   printf("\n\n=== Testing InsertVFirst ================================\n");
   InsertVFirst(&Senarai, 'N');
   printf("Isi Senarai :");
   PrintList(Senarai);
   printf("\nHitung elemen Senarai : %d", NbElm(Senarai));
-  
+
+  printf("\n\n=== Testing EmptyList ===================================\n");
+  if (IsEmptyList(Senarai)) {
+    printf("Senarai kosong\n");
+  }else {
+    printf("Senarai tidak kosong\n");
+  }
+   
   printf("\n\n=== Testing InsertVLast =================================\n");
   InsertVLast(&Senarai, 'G');
   InsertVLast(&Senarai, 'a');
@@ -95,7 +115,7 @@ int main()
   PrintList(Senarai);
   printf("\nHitung elemen Senarai : %d\n", NbElm(Senarai));
 
-  printf("\n\n=== Test Invers ========================================\n");
+  printf("\n\n=== Test Invers =========================================\n");
   Invers(&Senarai);
   printf("\nIsi Senarai :");
   PrintList(Senarai);
@@ -139,6 +159,34 @@ int main()
   PrintList(Senarai);
   printf("\nHitung elemen Senarai : %d\n", NbElm(Senarai));
   printf("Elemen yang paling banyak muncul : %c\n", Modus(Senarai));
-
+  
+  printf("\n\n=== Test NbModus =========================================\n");
+  InsertVAfter(&Senarai, 'p', 'B');
+  printf("\nIsi Senarai :");
+  PrintList(Senarai);
+  printf("\nHitung elemen Senarai : %d\n", NbElm(Senarai));
+  printf("Banyaknya Elemen yang paling banyak muncul : %d\n", NbModus(Senarai));
+  
+  printf("\n\n=== Test SplitList =======================================\n");
+  SplitList(Senarai, &Senarai1, &Senarai2);
+  printf("\nIsi Senarai :");
+  PrintList(Senarai);
+  printf("\nHasil Splitlist :");
+  printf("\nIsi Senarai1 :");
+  PrintList(Senarai1);
+  printf("\nIsi Senarai2 :");
+  PrintList(Senarai2);
+  
+  printf("\n\n=== Test CopyList ========================================\n");
+  CopyList(Senarai, &CopySenarai);
+  printf("\nIsi Senarai :");
+  PrintList(Senarai);
+  printf("\nHasil Copylist :");
+  printf("\nIsi CopySenarai :");
+  PrintList(CopySenarai);
+  
+  
+  printf("\n\n=== Program Selesai ======================================\n");
   return 0;
 }
+ 

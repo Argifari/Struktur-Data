@@ -183,7 +183,7 @@ void DeleteVLast(List1 *L, infotype *V) {
 			First(*L) = NIL;
 			Dealokasi(P);
 		}else {
-			for (int i = 1; i < N; i++) {
+			while (next(next(P)) != NIL) {
 				P = next(P);
 			}
 			Q = next(P);
@@ -269,7 +269,6 @@ void Invers(List1 *L) {
 			temp = P;
 			next(P) = NIL;
 		}else {
-			printf("%c",info(temp));
 			next(P) = temp;
 			temp = P;
 		}
@@ -435,24 +434,90 @@ infotype Modus(List1 L) {
 /*{ mengembalikan banyaknya huruf yang paling banyak muncul di list L}*/
 int NbModus(List1 L) {
 	// Kamus Lokal
+	address P;
+	int count = 0;
+	infotype temp;
 
 	// Algoritma
-	
+	P = First(L);
+	temp = Modus(L);
+	while (P != NIL)
+	{
+		if (info(P) == temp) {
+			count += 1;
+		}
+		P = next(P);
+	}
+	return count;
 }
 
 /*OPERASI BANYAK LIST*/
 /*Procedure ConcatList(input L1:List1, input L2:List1, output L:List1)
 {I.S.: L1,L2 terdefinisi ; 
  F.S.: L gabungan L1 dan L2}*/
-void ConcatList(List1 L1, List1 L2, List1 *L); 
+void ConcatList(List1 L1, List1 L2, List1 *L) {
+	// Kamus Lokal
+	address P;
+	address Q;
+
+	// Algoritma
+	First(*L) = First(L1);
+	P = First(L1);
+
+	while (P != NIL) {
+		P = next(P);
+
+	}
+}
 
 /*Procedure SplitList(input L:List1, output L1:List1, output L2:List1)
 {I.S.: L terdefinisi ; 
  F.S.: L1, L2 hasil pemecahan L}*/
-void SplitList(List1 L, List1 *L1, List1 *L2);
+void SplitList(List1 L, List1 *L1, List1 *L2) {
+	// Kamus Lokal
+	address P;
+	int N,i;
+
+	// Algoritma
+	N = NbElm(L);
+	P = First(L);
+	if (!IsEmptyList(L)) {
+		if (next(First(L)) == NIL) {
+			InsertVLast(L1,info(First(L)));
+		}else {
+			for (int i = 1; i <= N/2; i++) {
+				if (P != NIL) {
+					InsertVLast(L1,info(P));
+					P = next(P);
+				}
+			}
+			if (P != NIL) {
+				for (int i = (N/2) + 1; i <= N;i++) {
+					if (P != NIL) {
+						InsertVLast(L2, info(P));
+						P = next(P);
+					}
+				}
+			}
+		}
+	}
+
+}
 
 /*Procedure CopyList(input L1:List1, output L2:List1)
 {I.S.: L1 terdefinisi;  
  F.S.: L2 menjadi salinan L1}*/
-void CopyList(List1 L1, List1 *L2);
+void CopyList(List1 L1, List1 *L2) {
+	// Kamus Lokal
+	address P;
+	int N,i;
+
+	// Algoritma
+	N = NbElm(L1);
+	P = First(L1);
+	for (int i = 1; i <= N; i++) {
+		InsertVLast(L2, info(P));
+		P = next(P);
+	}
+}
 
