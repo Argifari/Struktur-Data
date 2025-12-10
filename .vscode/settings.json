@@ -1,3 +1,8 @@
 {
-    "C_Cpp.errorSquiggles": "disabled"
+    "C_Cpp.errorSquiggles": "enabled",
+    "files.associations": {
+        "pohon2.h": "c"
+    },
+    "editor.fontFamily": "JetBrains Mono Nerd Font",
+    "editor.fontSize": 13
 }
