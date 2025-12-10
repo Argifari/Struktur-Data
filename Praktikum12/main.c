@@ -11,6 +11,7 @@ int main() {
 	bintree3 W;
       int tinggiTree;
       int levelTree;
+      int banyakElemen;
 	
 	//algoritma
 	//bukalah komentar ini untuk menguji (aplikasi) Tree3
@@ -44,7 +45,6 @@ int main() {
       }
       
       printf("\n\n= Test IsDaun ============================\n\n");
-      printf("\n\n= Test IsUnerRight =======================\n\n");
       
       if (IsDaun(W)) {
             printf("Bintree3 ini sebuah daun\n");
@@ -53,13 +53,29 @@ int main() {
       }
       
       printf("\n\n= Test IsUnerLeft ========================\n\n");
-      if (IsDaun(W)) {
-            printf("Bintree3 ini sebuah daun\n");
+      if (IsUnerLeft(W)) {
+            printf("Bintree3 ini hanya memiliki anak kiri\n");
       }else {
-            printf("Bintree3 ini bukan daun\n");
+            printf("Bintree3 ini tidak hanya memiliki anak kiri\n");
       }
       
+      printf("\n\n= Test IsUnerRight =======================\n\n");
+      if (IsUnerRight(W)) {
+            printf("Bintree3 ini hanya memiliki anak kanan\n");
+      }else {
+            printf("Bintree3 ini tidak hanya memiliki anak kanan\n");
+      }
+      printf("\n\n= Test IsBiner ===========================\n\n");
+      if (IsBiner(W)) {
+            printf("Bintree3 ini kedua anak\n");
+      }else {
+            printf("Bintree3 ini tidak lengkap anaknya\n");
+      }
 
+      printf("\n\n= Test PrintBFS ==========================\n\n");
+      printf("Melakukan Print BFS:\n");
+      PrintBFS(W);
+      
       printf("\n\n= Program Selesai ========================\n\n");
       
 	

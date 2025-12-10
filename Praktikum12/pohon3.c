@@ -97,9 +97,9 @@ void PrintLevel (bintree3 P, int N) {
     //algoritma 
     if (P != NIL) {
         if (N == 1) {
-            printf("(");
+            printf(" ");
             printf("%c",info(P));
-            printf(")");
+            printf(" ");
         }else {
             PrintLevel(left(P),N - 1);
             PrintLevel(right(P),N - 1);
@@ -110,7 +110,20 @@ void PrintLevel (bintree3 P, int N) {
 /* procedure PrintBFS( input P:bintree3)
 {mencetak node-node P dari generasi paling terkecil ke terbesar}*/
 /*contoh: A B C D */
-void PrintBFS (bintree3 P);
+void PrintBFS (bintree3 P) {
+    // Kamus Lokal
+    int i;
+    int N;
+
+    // Algoritma
+    if (IsEmptyTree(P)) {
+        printf("()");
+    }else {
+        for (int i = 1; i <= N;i++) {
+            PrintLevel(P,i);
+        }
+    }
+}
 
 /****** SELEKTOR *****/
 /* menggunakan macro */
@@ -140,7 +153,7 @@ boolean IsBiner (bintree3 P) {
     // Kamus Lokal
     
     // Algoritma
-    return left(P) == NIL && right(P) == NIL;
+    return left(P) != NIL && right(P) != NIL;
 }
 
 /* function IsUnerLeft(P:bintree3)-> boolean
