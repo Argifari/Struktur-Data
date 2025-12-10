@@ -11,7 +11,8 @@ int main() {
 	bintree3 W;
       int tinggiTree;
       int levelTree;
-      int banyakElemen;
+      int nDaun;
+      int nElemen;
 	
 	//algoritma
 	//bukalah komentar ini untuk menguji (aplikasi) Tree3
@@ -75,7 +76,20 @@ int main() {
       printf("\n\n= Test PrintBFS ==========================\n\n");
       printf("Melakukan Print BFS:\n");
       PrintBFS(W);
+
+      printf("\n\n= Test NbDaun ============================\n\n");
+      nDaun = NbDaun(W);
+      printf("Banyak daun pada bintree3 W: %d",nDaun);
       
+      printf("\n\n= Test NbElemTree ========================\n\n");
+      nElemen = NbElmTree(W);
+      printf("Banyak elemen pada bintree3 W: %d",nElemen);
+
+
+      printf("\n\n= Test Level =============================\n\n");
+      levelTree = Level(W);
+      printf("Level bintree3 W:%d\n",levelTree);
+
       printf("\n\n= Program Selesai ========================\n\n");
       
 	
