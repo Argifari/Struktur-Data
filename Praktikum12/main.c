@@ -94,8 +94,7 @@ int main() {
       printf("\n\n= Test CountLevel ========================\n\n");
       levelTree = 2;
       N = CountLevelT(W,levelTree);
-
-      
+      printf("jumlah simpul di level %d : %d",levelTree,N);
       
       
       

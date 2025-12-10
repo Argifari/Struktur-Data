@@ -1,3 +1,7 @@
+/*Nama file:  pohon3.c */
+/*Deskripsi:   REALISASI ADT Tree 3 Binary tree dengan address parent*/
+/*Tanggal  :  10 Desember 2025*/
+/*Pembuat  :   Muhammad Firdaus Argifari 24060124130107*/
 
 #include "pohon3.h"
 
@@ -77,11 +81,8 @@ int Tinggi (bintree3 P) {
     // Kamus Lokal
 
     // Algoritma
-    if (IsEmptyTree(P)) {
+    if (IsEmptyTree(P) || IsDaun(P)) {
         return 0;
-    }else if (IsDaun(P)) {
-
-        return Max2(Tinggi(right(P)),Tinggi(left(P)));
     }
     else {
         return Max2(1 + Tinggi(right(P)), 1 + Tinggi(left(P)));
@@ -263,7 +264,9 @@ int CountLevelT (bintree3 P, int T) {
 /*procedure Pconcat( input/output Asli:list1, input Tambahan:list1) */
 /*{I.S:- ; F.S: list Asli berubah karena disambung list Tambahan}*/
 /*{menyambung list Tambahan ke belakang list Asli}*/
-void Pconcat (List1 *Asli, List1 Tambahan); 
+void Pconcat (List1 *Asli, List1 Tambahan) {
+
+} 
 
 /*function fconcat( Asli:List1, Tambahan:List1) -> List1 */
 /*{membentuk list Baru hasil penyambungan list Tambahan ke belakang list Asli}*/
