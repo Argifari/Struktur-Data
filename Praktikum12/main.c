@@ -13,7 +13,8 @@ int main() {
       int levelTree;
       int nDaun;
       int nElemen;
-	
+	int N;
+
 	//algoritma
 	//bukalah komentar ini untuk menguji (aplikasi) Tree3
       printf("\n\n= Program Dimulai ========================\n\n");
@@ -89,7 +90,15 @@ int main() {
       printf("\n\n= Test Level =============================\n\n");
       levelTree = Level(W);
       printf("Level bintree3 W:%d\n",levelTree);
+      
+      printf("\n\n= Test CountLevel ========================\n\n");
+      levelTree = 2;
+      N = CountLevelT(W,levelTree);
 
+      
+      
+      
+      
       printf("\n\n= Program Selesai ========================\n\n");
       
 	
