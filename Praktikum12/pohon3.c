@@ -113,10 +113,10 @@ void PrintLevel (bintree3 P, int N) {
 /*contoh: A B C D */
 void PrintBFS (bintree3 P) {
     // Kamus Lokal
-    int i;
     int N;
 
     // Algoritma
+    N = Level(P);
     if (IsEmptyTree(P)) {
         printf("()");
     }else {
@@ -254,15 +254,19 @@ void printPathDaunX (bintree3 P, infotype X) {
 {menampilkan semua jalur yang mungkin dari akar P hingga setiap daun}*/
 void printAllPaths (bintree3 P) {
     // Kamus Lokal
-    int N,i;
+    int N;
 
     // Algoritma
     N = NbDaun(P);
     if (!IsEmptyTree(P)) {
         if (IsDaun(P)) {
-            printPathDaunX()
+            printf("%c, ",info(P));
         }else {
-            
+            for(int i = 0; i < N;i++) {
+                printf("%c -> ", info(P));
+                printAllPaths(left(P));
+                printAllPaths(right(P));
+            }
         }
     }
 }
@@ -281,10 +285,8 @@ int NbElmTree (bintree3 P) {
         return 1 + NbElmTree(right(P));
     }else if (IsBiner(P)) {
         return 1 + NbElmTree(left(P)) + NbElmTree(right(P));
-    }else if (IsDaun(P)) {
-        return 1;
     }else {
-        return 0;
+        return 1;
     }
 }
 
@@ -302,7 +304,7 @@ int NbDaun (bintree3 P) {
         return NbDaun(right(P));
     }else if (IsBiner(P)) {
         return NbDaun(left(P)) + NbDaun(right(P));
-    }else if (IsDaun(P)) {
+    }else {
         return 1;
     }
 }
@@ -340,9 +342,7 @@ int CountLevelT (bintree3 P, int T) {
 /*procedure Pconcat( input/output Asli:list1, input Tambahan:list1) */
 /*{I.S:- ; F.S: list Asli berubah karena disambung list Tambahan}*/
 /*{menyambung list Tambahan ke belakang list Asli}*/
-void Pconcat (List1 *Asli, List1 Tambahan) {
-
-} 
+void Pconcat (List1 *Asli, List1 Tambahan);
 
 /*function fconcat( Asli:List1, Tambahan:List1) -> List1 */
 /*{membentuk list Baru hasil penyambungan list Tambahan ke belakang list Asli}*/
