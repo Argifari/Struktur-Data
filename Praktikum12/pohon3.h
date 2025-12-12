@@ -110,6 +110,14 @@ void printPathX (bintree3 P, infotype X);
 {menampilkan jalur dari akar P hingga daun bernilai X }*/
 void printPathDaunX (bintree3 P, infotype X);
 
+// procedure arrayDaun(input P : bintree3, input/output a : array of character, input/output len : integer)
+// {
+// I.S : a telah terdefinisi, P telah terdefinisi
+// F.S : a berisi character dari Daun di pohon P
+// proses: membuat array yang berisi daun dari P}
+void arrayDaun(bintree3 P, char a[], int *len); 
+
+
 /*procedure printAllPaths( input P:bintree3)
 {menampilkan semua jalur yang mungkin dari akar P hingga setiap daun}*/
 void printAllPaths (bintree3 P);

@@ -5,7 +5,6 @@
 #ifndef list1_H
 #define list1_H
 
-#include "pohon3.h"
 #include "boolean.h"
 
 /* pendefinisian macro */

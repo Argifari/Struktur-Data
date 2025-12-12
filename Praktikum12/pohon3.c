@@ -249,24 +249,51 @@ void printPathDaunX (bintree3 P, infotype X) {
     }
     
 }
+/*
+procedure arrayDaun(input P : bintree3, input/output a : array[len] of character, input/output len : integer)
+{
+I.S : a telah terdefinisi, P telah terdefinisi
+F.S : a berisi character dari Daun di pohon P
+proses: membuat array yang berisi daun dari P}
+*/
+
+void arrayDaun(bintree3 P, char a[], int *len) {
+    // Kamus Lokal
+
+    // Algoritma
+    if (!IsEmptyTree(P)) {
+        if (IsDaun(P)) {
+            a[*len] = info(P);
+            (*len) = (*len) + 1; 
+        }else {
+            if (left(P) != NIL){
+                arrayDaun(left(P), a, len);
+            }
+            if (right(P) != NIL) {
+                arrayDaun(right(P), a, len);
+            }
+        }
+    }
+}
+
+
 
 /*procedure printAllPaths( input P:bintree3)
 {menampilkan semua jalur yang mungkin dari akar P hingga setiap daun}*/
 void printAllPaths (bintree3 P) {
     // Kamus Lokal
     int N;
+    char a[NbDaun(P) + 1];
+    int len;
 
     // Algoritma
     N = NbDaun(P);
+    len = 0;
+    arrayDaun(P,a,&len);
     if (!IsEmptyTree(P)) {
-        if (IsDaun(P)) {
-            printf("%c, ",info(P));
-        }else {
-            for(int i = 0; i < N;i++) {
-                printf("%c -> ", info(P));
-                printAllPaths(left(P));
-                printAllPaths(right(P));
-            }
+        for (int i = 0; i < N; i++) {
+            printPathDaunX(P,a[i]);
+            printf("\n");
         }
     }
 }
@@ -342,7 +369,13 @@ int CountLevelT (bintree3 P, int T) {
 /*procedure Pconcat( input/output Asli:list1, input Tambahan:list1) */
 /*{I.S:- ; F.S: list Asli berubah karena disambung list Tambahan}*/
 /*{menyambung list Tambahan ke belakang list Asli}*/
-void Pconcat (List1 *Asli, List1 Tambahan);
+void Pconcat (List1 *Asli, List1 Tambahan) {
+    // Kamus Lokal
+
+    // Algoritma
+    
+}
+
 
 /*function fconcat( Asli:List1, Tambahan:List1) -> List1 */
 /*{membentuk list Baru hasil penyambungan list Tambahan ke belakang list Asli}*/
