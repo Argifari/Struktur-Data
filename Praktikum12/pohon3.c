@@ -174,24 +174,98 @@ boolean IsUnerRight (bintree3 P) {
     // Algoritma
     return left(P) == NIL && right(P) != NIL;
 }
+/*** PENCARIAN ***/
+/*function SearchX(P:BinTree, X:infotype) -> boolean 
+{ Mengirimkan true jika ada node dari P yang bernilai X }*/
+boolean SearchXTree(bintree3 P, infotype X) {    
+    // Kamus Lokal
+
+    // Algoritmac
+    if (IsEmptyTree(P)) {
+        return false;
+    }
+    if (info(P) == X) {
+        return true;
+    }
+    return SearchXTree(left(P),X) || SearchXTree(right(P), X); 
+}
 
 /*PENELUSURAN*/
 /*procedure resetVisited( input/output P : bintree3 )
 {I.S: P terdefinisi; F.S: -}
 {proses mengubah status visited semua node di P menjadi false}*/
-void resetVisited (bintree3 P);
+void resetVisited (bintree3 P) {
+    // Kamus Lokal
+
+    // Algoritma
+    if (P != NIL) {
+        visited(P) = false;
+        resetVisited(left(P));
+        resetVisited(right(P));
+    }
+}
 
 /*procedure printPathX( input P:bintree3, input X:infotype)
 {menampilkan jalur dari akar P hingga node bernilai X }*/
-void printPathX (bintree3 P, infotype X);
+void printPathX (bintree3 P, infotype X) {
+    // Kamus Lokal
+
+    // Algoritma
+    if (!IsEmptyTree(P)) {
+        if (info(P) == X) {
+            printf("%c",info(P));
+        }else if (SearchXTree(left(P),X)) {
+            printf("%c -> ",info(P));
+            printPathX(left(P),X);
+        }else if (SearchXTree(right(P),X)) {
+            printf("%c -> ",info(P));
+            printPathX(right(P),X);
+        }
+    }else {
+        printf("()");
+    }
+}
 
 /*procedure printPathDaunX( input P:bintree3, input X:infotype)
 {menampilkan jalur dari akar P hingga daun bernilai X }*/
-void printPathDaunX (bintree3 P, infotype X);
+void printPathDaunX (bintree3 P, infotype X) {
+    // Kamus Lokal
+    
+    // Algoritma
+    if (!IsEmptyTree(P)) {
+        if (info(P) == X && IsDaun(P)) {
+            printf("%c",info(P));
+        }else if (SearchXTree(left(P),X)) {
+            printf("%c -> ",info(P));
+            printPathDaunX(left(P),X);
+        }else if (SearchXTree(right(P),X)) {
+            printf("%c -> ",info(P));
+            printPathDaunX(right(P),X);
+        }else {
+            printf("()");
+        }
+    }else {
+        printf("()");
+    }
+    
+}
 
 /*procedure printAllPaths( input P:bintree3)
 {menampilkan semua jalur yang mungkin dari akar P hingga setiap daun}*/
-void printAllPaths (bintree3 P);
+void printAllPaths (bintree3 P) {
+    // Kamus Lokal
+    int N,i;
+
+    // Algoritma
+    N = NbDaun(P);
+    if (!IsEmptyTree(P)) {
+        if (IsDaun(P)) {
+            printPathDaunX()
+        }else {
+            
+        }
+    }
+}
 
 /* function NbElmTree(P:bintree3) --> integer
 { menghitung banyaknya elemen bintree3 P} */
@@ -209,6 +283,8 @@ int NbElmTree (bintree3 P) {
         return 1 + NbElmTree(left(P)) + NbElmTree(right(P));
     }else if (IsDaun(P)) {
         return 1;
+    }else {
+        return 0;
     }
 }
 

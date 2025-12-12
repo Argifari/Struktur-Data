@@ -14,6 +14,7 @@ int main() {
       int nDaun;
       int nElemen;
 	int N;
+      infotype X;
 
 	//algoritma
 	//bukalah komentar ini untuk menguji (aplikasi) Tree3
@@ -96,8 +97,24 @@ int main() {
       N = CountLevelT(W,levelTree);
       printf("jumlah simpul di level %d : %d",levelTree,N);
       
+      printf("\n\n= Test PrintPathX ========================\n\n");
+      X = 'C';
+      printf("Mencari path node %c :\n",X);
+      printPathX(W,X);
       
+      printf("\n\n= Test PrintPathDaunX ====================\n\n");
+      printf("Mencari path node %c :\n",X);
+      printPathDaunX(W,X);
       
+      printf("\n\n= Test PrintAllPath ======================\n\n");
+      printAllPaths(W);
+
+
+
+
+
+
+
       printf("\n\n= Program Selesai ========================\n\n");
       
 	

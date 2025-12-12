@@ -4,7 +4,7 @@
 /* Tanggal : 5 November 2025 */
 #include <stdio.h>
 #include <stdlib.h>
-#include "list1.h"
+#include "list.h"
 
 /* PROTOTYPE */
 /**************** OPERATOR ALOKASI ****************/

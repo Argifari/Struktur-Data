@@ -6,10 +6,9 @@
 #define pohon3_H
 
 #include <stdio.h>
-#include <stdlib.h> 
-
-#include "list1.h" /* ambil dari hasil kerja praktikum 7 */
+#include <stdlib.h>
 #include "boolean.h"
+#include "list.h" /* ambil dari hasil kerja praktikum 7 */
 
 #define NIL NULL
 #define info(P)    (P)->info
@@ -92,6 +91,11 @@ boolean IsUnerLeft (bintree3 P);
 { Mengirimkan true jika pohon biner tidak kosong P adalah pohon unerright: hanya mempunyai subpohon kanan}*/
 boolean IsUnerRight (bintree3 P);
 
+/*** PENCARIAN ***/
+/*function SearchX(P:BinTree, X:infotype) -> boolean 
+{ Mengirimkan true jika ada node dari P yang bernilai X }*/
+boolean SearchXTree(bintree3 P, infotype X);
+
 /*PENELUSURAN*/
 /*procedure resetVisited( input/output P : bintree3 )
 {I.S: P terdefinisi; F.S: -}
@@ -139,7 +143,7 @@ void Pconcat (List1 *Asli, List1 Tambahan);
 /*function fconcat( Asli:list1, Tambahan:list1) -> list1 */
 /*{membentuk list Baru hasil penyambungan list Tambahan ke belakang list Asli}*/
 /*{periksa dampaknya, list Asli tidak boleh berubah }*/
-List1 Fconcat (List1 Asli, List1 Tambahan); 
+List1 Fconcat (List1 Asli, List1 Tambahan);
 
 /*** LINEARISASI POHON ***/
 /*function linearPrefix(P:bintree3) -> list1
