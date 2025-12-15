@@ -8,7 +8,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "boolean.h"
-#include "list.h" /* ambil dari hasil kerja praktikum 7 */
+#include "list1.h" /* ambil dari hasil kerja praktikum 7 */
 
 #define NIL NULL
 #define info(P)    (P)->info
@@ -165,6 +165,10 @@ List1 LinearPosfix (bintree3 P);
 /*function linearInfix(P:bintree3) -> list1
 {menghasilkan list node dari P terurut infix kiri,akar,kanan}*/
 List1 LinearInfix (bintree3 P);
+
+/*function LinearPerLevel(P:bintree3, N: integer) -> List1
+{menghasilkan list node dari P di level N}*/
+List1 LinearPerLevel (bintree3 P,int N);
 
 /*function linearBreadthFS(P:bintree3) -> list1
 {menghasilkan list node dari P terurut level/tingkat}*/

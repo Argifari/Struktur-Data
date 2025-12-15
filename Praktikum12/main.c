@@ -15,6 +15,11 @@ int main() {
       int nElemen;
 	int N;
       infotype X;
+      List1 asli;
+      List1 asliCopy;
+      List1 tambahan;
+      List1 baru;
+      List1 treeToList;
 
 	//algoritma
 	//bukalah komentar ini untuk menguji (aplikasi) Tree3
@@ -103,16 +108,61 @@ int main() {
       printPathX(W,X);
       
       printf("\n\n= Test PrintPathDaunX ====================\n\n");
-      printf("Mencari path node %c :\n",X);
+      printf("Mencari path node daun %c :\n",X);
       printPathDaunX(W,X);
       
       printf("\n\n= Test PrintAllPath ======================\n\n");
+      printf("Menampilkan semua path ke setiap daun :\n");
       printAllPaths(W);
 
-
-
-
-
+      printf("\n\n= Test Pconcat ===========================\n\n");
+      printf("Menggabungkan list tambahan ke list asli : \n");
+      CreateList(&asli);
+      InsertVLast(&asli,'X');
+      InsertVLast(&asli,'B');
+      InsertVLast(&asli,'A');
+      InsertVLast(&asli,'C');
+      CreateList(&asliCopy);
+      Pconcat(&asliCopy,asli);
+      CreateList(&tambahan);
+      InsertVLast(&tambahan,'G');
+      InsertVLast(&tambahan,'K');
+      InsertVLast(&tambahan,'O');
+      printf("\nCetak list asli :");
+      PrintList(asli);
+      printf("\n\nCetak list tambahan :");
+      PrintList(tambahan);
+      
+      printf("\n\nCetak list asli setelah diconcat list tambahan:");
+      Pconcat(&asli,tambahan);
+      PrintList(asli);
+      
+      printf("\n\n= Test Fconcat ===========================\n\n");
+      printf("Membuat list baru dengan list asli dan tambahan :\n");
+      CreateList(&baru);
+      baru = Fconcat(asliCopy,tambahan);
+      printf("Hasil list baru:");
+      PrintList(baru);
+      printf("\n\n= Test LinearPrefix ======================\n\n");
+      printf("Representasi pohon W ke list prefix:\n");
+      CreateList(&treeToList);
+      treeToList = LinearPrefix(W);
+      PrintList(treeToList);
+      
+      printf("\n\n= Test LinearPostfix =====================\n\n");
+      printf("Representasi pohon W ke list postfix:\n");
+      treeToList = LinearPosfix(W);
+      PrintList(treeToList);
+      
+      printf("\n\n= Test LinearInfix =======================\n\n");
+      printf("Representasi pohon W ke list Infix:\n");
+      treeToList = LinearInfix(W);
+      PrintList(treeToList);
+      
+      printf("\n\n= Test LinearBreadthFS ===================\n\n");
+      printf("Representasi pohon W ke list menyeabar:\n");
+      treeToList = LinearBreadthFS(W);
+      PrintList(treeToList);
 
 
       printf("\n\n= Program Selesai ========================\n\n");
